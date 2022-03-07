@@ -7,7 +7,6 @@
       </span>
     </div>
     <div class="user-info">
-      <div class="user-name">{{ user.name }}</div>
       <div class="user-money">
         <p>{{ user.money }}</p>
         <p class="add-money" v-if="addMoney">{{ addMoney }}</p>
@@ -17,31 +16,31 @@
 </template>
 
 <script>
-import { useStore } from "vuex";
-import { computed, ref, watch } from "vue";
+import { useStore } from 'vuex'
+import { computed, ref, watch } from 'vue'
 
 export default {
   setup(props) {
-    const store = useStore();
+    const store = useStore()
 
-    const addMoney = ref(0);
+    const addMoney = ref(0)
 
     watch(
       () => store.state.user.money,
       (money, prevMoney) => {
-        addMoney.value = money - prevMoney;
+        addMoney.value = money - prevMoney
         setTimeout(() => {
-          addMoney.value = 0;
-        }, 1000);
+          addMoney.value = 0
+        }, 1000)
       }
-    );
+    )
 
     return {
       addMoney,
-      user: computed(() => store.state.user),
-    };
-  },
-};
+      user: computed(() => store.state.user)
+    }
+  }
+}
 </script>
 <style scoped lang="scss">
 /* user 用户*/
@@ -49,10 +48,11 @@ export default {
   position: fixed;
   top: 0.5rem;
   left: 0.5rem;
-  z-index: 30;
+  z-index: 99;
   display: flex;
   align-items: center;
-  padding: 0.25rem 0.75rem 0.25rem 0.25rem;
+  justify-content: center;
+  padding: 0.5rem 2rem 0.5rem 2rem;
   background: rgba(255, 255, 255, 0.75);
   border-radius: 3rem;
   padding-left: 50px;
@@ -66,7 +66,7 @@ export default {
   display: flex;
   font-size: 2rem;
   position: absolute;
-  left: 0;
+  left: 0.5rem;
 }
 .user-logo .portrait-item {
   border: none;
@@ -90,22 +90,20 @@ export default {
   font-size: 0.65rem;
   padding: 2px 8px;
   border-radius: 5px;
-  // border: 2px solid #6b3900;
   transform: translateX(-50%);
+}
+.user-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0.5rem;
 }
 .user-money {
   display: flex;
   color: #ffb304;
   font-size: 0.7rem;
-  padding-top: 0.2rem;
-}
-.user-name {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #333;
 }
 
-// 增加money动画
 .add-money {
   position: absolute;
   left: 120px;

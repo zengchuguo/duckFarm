@@ -1,23 +1,28 @@
 <template>
-    <div :class="['chick', {'eat': chick.eat }]">
-        
+  <div :class="['chick', { 'chick-eat': chick.eat }]">
+    <div class="eat-status">{{ content }}</div>
+    <div class="progress" v-if="width > 0">
+      <div class="value" :style="{ width: `${width}px` }"></div>
     </div>
+  </div>
 </template>
 
 <script>
-import { useStore } from "vuex";
-import { computed } from "vue";
+import { useStore } from 'vuex'
+import { computed } from 'vue'
 export default {
-    setup(){
-        const store = useStore()
+  name: '',
+  setup(props) {
+    const store = useStore()
 
-        return {
-            chick: computed(() => store.state.chick),
-        }
+    return {
+      width: computed(() => store.state.value * 150),
+      chick: computed(() => store.state.chick),
+      content: computed(() => store.state.content)
     }
-};
+  }
+}
 </script>
-
 <style scoped>
 .chick {
   width: 12.375rem;
@@ -31,10 +36,12 @@ export default {
   margin-left: -100px;
   bottom: 10rem;
 }
-.eat {
+
+.chick-eat {
   background-size: 200%;
-  animation: chicken-ani 0.8s step-start infinite; 
+  animation: chicken-ani 0.8s step-start infinite;
 }
+
 @keyframes chicken-ani {
   0% {
     background-image: url(../assets/images/chicken-ani.png);
@@ -54,4 +61,34 @@ export default {
   }
 }
 
+.chick .eat-status {
+  width: 150px;
+  margin: 0 auto;
+  height: 20px;
+  line-height: 20px;
+  background-color: rgb(248, 159, 43);
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  border-radius: 20px;
+  margin-top: -80px;
+}
+
+.progress {
+  width: 150px;
+  height: 5px;
+  background-color: rgb(181, 150, 210);
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  margin: 10px auto;
+}
+.progress .value {
+  /* width: 150px; */
+  height: 5px;
+  background-color: blueviolet;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 </style>

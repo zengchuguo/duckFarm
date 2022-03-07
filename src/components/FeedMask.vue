@@ -10,11 +10,7 @@
           <p>获得经验：{{ food.exp }}</p>
         </div>
 
-        <img
-          src="../assets/images/close.png"
-          class="close-btn"
-          @click="cancel"
-        />
+        <img src="../assets/images/close.png" class="close-btn" @click="cancel" />
         <button @click="feedChick(food.id)">喂食</button>
       </div>
     </div>
@@ -22,57 +18,57 @@
 </template>
 
 <script>
-import emitter from "../hooks/emiter";
+import emitter from '../hooks/emiter'
 
-import { ref, computed, reactive } from "vue";
+import { ref, computed, reactive } from 'vue'
 
-import { useStore } from "vuex";
+import { useStore } from 'vuex'
 
 export default {
-  name: "buy-mask",
+  name: 'buy-mask',
   setup(props) {
-    const showFlag = ref(false);
+    const showFlag = ref(false)
 
-    const store = useStore();
+    const store = useStore()
 
     const data = reactive({
       food: {},
-      id: 0,
-    });
+      id: 0
+    })
 
-    emitter.on("show-feed-mask", ({ status, id }) => {
-      showFlag.value = status;
-      data.food = store.getters.theFood(id);
-      data.id = id;
-    });
+    emitter.on('show-feed-mask', ({ status, id }) => {
+      showFlag.value = status
+      data.food = store.getters.theFood(id)
+      data.id = id
+    })
 
     const cancel = () => {
-      showFlag.value = false;
-    };
+      showFlag.value = false
+    }
 
-    const feedChick = (id) => {
-      store.dispatch("feedChick", {
-        id,
-      });
-      showFlag.value = false;
-    };
+    const feedChick = id => {
+      store.dispatch('feedChick', {
+        id
+      })
+      showFlag.value = false
+    }
 
     const eatTime = computed(() => {
-      let eatTime = data.food.eatTime;
-      let min = Math.floor(eatTime / 1000 / 60);
-      let sec = Math.ceil((eatTime / 1000) % 60);
-      return `${min}分${sec}秒`;
-    });
+      let eatTime = data.food.eatTime
+      let min = Math.floor(eatTime / 1000 / 60)
+      let sec = Math.ceil((eatTime / 1000) % 60)
+      return `${min}分${sec}秒`
+    })
 
     return {
       showFlag,
       food: computed(() => data.food),
       feedChick,
       cancel,
-      eatTime,
-    };
-  },
-};
+      eatTime
+    }
+  }
+}
 </script>
 <style scoped>
 .container {

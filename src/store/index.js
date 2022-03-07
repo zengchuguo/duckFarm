@@ -172,6 +172,6 @@ export default createStore({
         let food = state.foodList.filter(food => (food.id == id ? food : null))[0]
         return food
       }
-  },
-  plugins: [createPersistedState()]
+  }
+  //plugins: [createPersistedState()]
 })
