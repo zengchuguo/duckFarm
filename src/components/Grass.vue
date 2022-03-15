@@ -1,29 +1,22 @@
 <template>
-    <div class="land">
-        <div class="grass-1">
-            <span></span>
-        </div>
-
-        <img class="bowl" src="../assets/images/bowl.png">
+  <div class="land">
+    <div class="grass-1">
+      <span></span>
     </div>
+    <img class="bowl" src="../assets/images/bowl.png" />
+  </div>
 </template>
 
 <script>
 export default {
-    data() {
-        return {
-            
-        };
-    },
+  data() {
+    return {}
+  },
 
-    mounted() {
-        
-    },
+  mounted() {},
 
-    methods: {
-        
-    },
-};
+  methods: {}
+}
 </script>
 
 <style scoped>
@@ -48,7 +41,7 @@ export default {
   z-index: 2;
 }
 .grass-1 span {
-  content: "";
+  content: '';
   display: block;
   width: 100%;
   height: 80%;

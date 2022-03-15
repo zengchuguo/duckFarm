@@ -1,15 +1,16 @@
-var foodList = [{
+var foodList = [
+  {
     id: 1,
-    name: '小麦',    // 食物名称
-    price: 10,      // 单价
-    // eatTime: 2000,
-    eatTime: 15000,  // 进食时间 (单位毫秒)
-    exp: 100,       // 增加小鸡经验
-    num: 2,         // 库存数量
-    unlock: 1,      // 0为待解锁，1为已解锁
+    name: '小麦', // 食物名称
+    price: 10, // 单价
+    eatTime: 15000, // 进食时间 (单位毫秒)
+    exp: 100, // 增加小鸡经验
+    num: 2, // 库存数量
+    unlock: 1, // 0为待解锁，1为已解锁
     unlockPrice: 1, // 解锁金额
     url: require('../assets/images/food1.png') // 图片
-  },{
+  },
+  {
     id: 2,
     name: '三叶草',
     price: 100,
@@ -19,7 +20,8 @@ var foodList = [{
     unlock: 0,
     unlockPrice: 100,
     url: require('../assets/images/food2.png')
-  },{
+  },
+  {
     id: 3,
     name: '橄榄',
     price: 150,
@@ -29,7 +31,8 @@ var foodList = [{
     unlock: 0,
     unlockPrice: 500,
     url: require('../assets/images/food3.png')
-  },{
+  },
+  {
     id: 4,
     name: '面包',
     price: 450,
@@ -39,7 +42,8 @@ var foodList = [{
     unlock: 0,
     unlockPrice: 1000,
     url: require('../assets/images/food4.png')
-  },{
+  },
+  {
     id: 5,
     name: '葡萄',
     price: 650,
@@ -49,7 +53,8 @@ var foodList = [{
     unlock: 0,
     unlockPrice: 1300,
     url: require('../assets/images/food5.png')
-  },{
+  },
+  {
     id: 6,
     name: '豆腐',
     price: 750,
@@ -59,7 +64,8 @@ var foodList = [{
     unlock: 0,
     unlockPrice: 1500,
     url: require('../assets/images/food6.png')
-  },{
+  },
+  {
     id: 7,
     name: '大包菜',
     price: 750,
@@ -69,6 +75,7 @@ var foodList = [{
     unlock: 0,
     unlockPrice: 1500,
     url: require('../assets/images/food7.png')
-  }]
-  
-  export default foodList;
+  }
+]
+
+export default foodList

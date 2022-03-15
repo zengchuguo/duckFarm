@@ -2,7 +2,7 @@
   <div class="nav">
     <div class="siliao" @click="openDrawer">
       <img class="nav-icon" src="../assets/images/food.png" />
-      <span class="nav-name">0g</span>
+      <span class="nav-name">食物</span>
     </div>
   </div>
 </template>
@@ -14,7 +14,6 @@ export default {
     const store = useStore()
 
     const openDrawer = () => {
-      console.log('click')
       store.commit('openDrawer', true)
     }
 

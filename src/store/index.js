@@ -10,8 +10,8 @@ export default createStore({
     isDrawerOpen: false,
     foodList: foodList,
     user: {
-      name: '养鸡大王', //用户名
-      money: 10000, //用户金额
+      name: '养鸡小能手', //用户名
+      money: 1000, //用户金额
       level: 1 //用户等级
     },
     // 小鸡信息
@@ -30,7 +30,7 @@ export default createStore({
         addEggExps: 2 // 每次增加的鸡蛋经验  100个经验增加2%
       }
     },
-    content: '好饿哦', // 倒计时
+    content: '吃饭饭', // 倒计时
     // 进度条
     value: 0
   },
@@ -108,7 +108,7 @@ export default createStore({
         cont = `${Math.floor(deltTime / 1000 / 60)}分${Math.ceil((deltTime / 1000) % 60)}秒`
       } else {
         state.value = 0
-        cont = '好饿哦(⊙o⊙)…'
+        cont = '想吃饭饭…'
       }
       state.content = cont
     },
@@ -142,14 +142,14 @@ export default createStore({
             value: val,
             deltTime: eatTime - (endTime - startTime)
           })
-
+          /* 喂食完毕 */
           if (val >= 1) {
             clearInterval(timer)
             store.commit('feedChick', { id })
           }
         }, 16)
       } else {
-        console.log('还没吃完呢，稍后再喂吧。。。')
+        console.log('还没吃完呢，稍后再喂吧')
       }
 
       // 关闭抽屉
@@ -172,6 +172,6 @@ export default createStore({
         let food = state.foodList.filter(food => (food.id == id ? food : null))[0]
         return food
       }
-  }
-  //plugins: [createPersistedState()]
+  },
+  plugins: [createPersistedState()]
 })

@@ -16,49 +16,49 @@
 </template>
 
 <script>
-import emitter from "../hooks/emiter";
+import emitter from '../hooks/emiter'
 
-import { ref } from "vue";
+import { ref } from 'vue'
 
-import { useStore } from "vuex";
+import { useStore } from 'vuex'
 
 export default {
-  name: "unlock-mask",
+  name: 'unlock-mask',
   setup(props) {
-    const showFlag = ref(false);
+    const showFlag = ref(false)
 
-    const store = useStore();
+    const store = useStore()
 
-    const unlockPrice = ref(0);
+    const unlockPrice = ref(0)
 
-    emitter.on("show-unlock-mask", ({ status, id }) => {
-      showFlag.value = status;
-      unlockPrice.value = store.getters.unlockPrice(id);
-    });
+    emitter.on('show-unlock-mask', ({ status, id }) => {
+      showFlag.value = status
+      unlockPrice.value = store.getters.unlockPrice(id)
+    })
 
     const cancel = () => {
-      showFlag.value = false;
-    };
+      showFlag.value = false
+    }
 
     const ensure = () => {
-      emitter.emit("unlock-food");
-      showFlag.value = false;
-    };
+      emitter.emit('unlock-food')
+      showFlag.value = false
+    }
 
     return {
       showFlag,
       unlockPrice,
       ensure,
-      cancel,
-    };
-  },
-};
+      cancel
+    }
+  }
+}
 </script>
 <style scoped>
 .container {
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #00000080;
   position: absolute;
   z-index: 299;
 }

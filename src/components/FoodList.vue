@@ -18,15 +18,13 @@
 import { useStore } from 'vuex'
 import { computed } from 'vue'
 
-import Hello from './Hello.vue'
-
 import emitter from '../hooks/emiter'
 
 const store = useStore()
 const foods = computed(() => store.state.foodList)
 
+/* 购买食料  */
 const buyFood = id => {
-  console.log('购买饲料')
   emitter.emit('show-buy-mask', {
     status: true,
     id: id
@@ -38,6 +36,7 @@ const buyFood = id => {
   })
 }
 
+/* 解锁食料 */
 const unlockFood = id => {
   emitter.emit('show-unlock-mask', {
     status: true,
@@ -51,6 +50,7 @@ const unlockFood = id => {
 }
 
 const feedChick = id => {
+  console.log('s')
   emitter.emit('show-feed-mask', {
     status: true,
     id: id
@@ -84,11 +84,11 @@ const feedChick = id => {
   width: 100%;
   height: 100%;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #00000080;
 }
 
 .food-item .item-mask .buy-btn {
-  background-color: rgb(16, 179, 105);
+  background-color: #10b369;
   color: #fff;
   width: 55px;
   height: 32px;
@@ -99,7 +99,7 @@ const feedChick = id => {
 }
 
 .food-item .item-mask .unlock-btn {
-  background-color: rgb(255, 136, 0);
+  background-color: #ff8800;
   color: #fff;
   width: 55px;
   height: 32px;

@@ -66,7 +66,7 @@ export default {
   margin: 0 auto;
   height: 20px;
   line-height: 20px;
-  background-color: rgb(248, 159, 43);
+  background-color: #f89f2b;
   color: #fff;
   padding: 10px;
   text-align: center;
@@ -77,7 +77,7 @@ export default {
 .progress {
   width: 150px;
   height: 5px;
-  background-color: rgb(181, 150, 210);
+  background-color: #b596d2;
   border-radius: 5px;
   overflow: hidden;
   position: relative;
@@ -86,7 +86,7 @@ export default {
 .progress .value {
   /* width: 150px; */
   height: 5px;
-  background-color: blueviolet;
+  background-color: #8a2be2;
   position: absolute;
   top: 0;
   left: 0;

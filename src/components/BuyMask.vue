@@ -22,54 +22,54 @@
 </template>
 
 <script>
-import emitter from "../hooks/emiter";
+import emitter from '../hooks/emiter'
 
-import { ref, computed, reactive } from "vue";
+import { ref, computed, reactive } from 'vue'
 
-import { useStore } from "vuex";
+import { useStore } from 'vuex'
 
 export default {
-  name: "buy-mask",
+  name: 'buy-mask',
   setup(props) {
-    const showFlag = ref(false);
+    const showFlag = ref(false)
 
-    const store = useStore();
+    const store = useStore()
 
     const data = reactive({
       food: {},
       id: 0,
-      num: 0,
-    });
+      num: 0
+    })
 
-    emitter.on("show-buy-mask", ({ status, id }) => {
-      showFlag.value = status;
-      data.food = store.getters.theFood(id);
-      data.id = id;
-      data.num = 0;
-    });
+    emitter.on('show-buy-mask', ({ status, id }) => {
+      showFlag.value = status
+      data.food = store.getters.theFood(id)
+      data.id = id
+      data.num = 0
+    })
 
     const cancel = () => {
-      showFlag.value = false;
-    };
+      showFlag.value = false
+    }
 
     const ensure = () => {
-      store.commit("buyFood", {
+      store.commit('buyFood', {
         id: data.id,
-        num: data.num,
-      });
-      showFlag.value = false;
-    };
+        num: data.num
+      })
+      showFlag.value = false
+    }
 
     // 增加数量
     const addNum = () => {
-      data.num++;
-    };
+      data.num++
+    }
     // 减少数量
     const minNum = () => {
       if (data.num > 0) {
-        data.num--;
+        data.num--
       }
-    };
+    }
 
     return {
       showFlag,
@@ -78,16 +78,16 @@ export default {
       ensure,
       cancel,
       addNum,
-      minNum,
-    };
-  },
-};
+      minNum
+    }
+  }
+}
 </script>
 <style scoped>
 .container {
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #00000080;
   position: absolute;
   z-index: 299;
 }
