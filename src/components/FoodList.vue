@@ -1,6 +1,6 @@
 <template>
   <div class="food-list">
-    <div class="food-item" v-for="f in foods" :key="f.id" @click="feedChick(f.id)">
+    <div class="food-item" v-for="f in foods" :key="f.id" @click="feedChick(f)">
       <div class="item-mask" v-if="f.num <= 0">
         <p class="buy-btn" v-show="f.unlock === 1" @click.stop="buyFood(f.id)">购买</p>
         <p class="unlock-btn" v-show="f.unlock === 0" @click.stop="unlockFood(f.id)">解锁</p>
@@ -49,12 +49,15 @@ const unlockFood = id => {
   })
 }
 
-const feedChick = id => {
-  console.log('s')
-  emitter.emit('show-feed-mask', {
-    status: true,
-    id: id
-  })
+const feedChick = food => {
+  console.log(food)
+  if (food.unlock === 0) unlockFood(food.id)
+  else if (food.num === 0) buyFood(food.id)
+  else
+    emitter.emit('show-feed-mask', {
+      status: true,
+      id: food.id
+    })
 }
 </script>
 <style scoped>
