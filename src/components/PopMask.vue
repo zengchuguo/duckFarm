@@ -25,32 +25,32 @@
 </template>
 
 <script>
-import { useStore } from "vuex";
-import { computed } from "vue";
-import FoodList from "./FoodList.vue";
+import { useStore } from 'vuex'
+import { computed } from 'vue'
+import FoodList from './FoodList.vue'
 
 // 解锁界面
-import UnlockMask from "./UnlockMask.vue";
+import UnlockMask from './UnlockMask.vue'
 // 购买界面
-import Buymask from "./BuyMask.vue";
+import Buymask from './BuyMask.vue'
 // 喂食界面
-import FeedMask from "./FeedMask.vue";
+import FeedMask from './FeedMask.vue'
 
 export default {
   components: { FoodList, UnlockMask, Buymask, FeedMask },
   setup(props) {
-    const store = useStore();
+    const store = useStore()
 
     const hideMask = () => {
-      store.commit("openDrawer", false);
-    };
+      store.commit('openDrawer', false)
+    }
 
     return {
       isMaskShow: computed(() => store.state.isDrawerOpen),
-      hideMask,
-    };
-  },
-};
+      hideMask
+    }
+  }
+}
 </script>
 <style scoped>
 /* 换装场景 */

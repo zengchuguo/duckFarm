@@ -53,6 +53,10 @@ export default {
     }
 
     const ensure = () => {
+      if (data.num === 0) {
+        showFlag.value = false
+        return
+      }
       store.commit('buyFood', {
         id: data.id,
         num: data.num
