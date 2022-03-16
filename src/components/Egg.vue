@@ -71,7 +71,7 @@ export default {
   z-index: 6;
   display: block;
   overflow: hidden;
-  box-shadow: 0 0 5px #fff, 0 0 10px rgb(207, 255, 182), 0 0 15px rgb(89, 255, 71);
+  box-shadow: 0 0 5px #fff, 0 0 10px #cfffb6, 0 0 15px #59ff47;
 }
 
 .egg-progress-wrap {

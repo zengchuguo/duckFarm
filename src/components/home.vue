@@ -37,14 +37,7 @@ export default {
     PopMask,
     Egg
   },
-  setup(props, ctx) {
-    const openDraw = () => {
-      console.log('open ...')
-    }
-    return {
-      openDraw
-    }
-  }
+  setup(props, ctx) {}
 }
 </script>
 <style scoped lang="scss">
@@ -53,7 +46,7 @@ export default {
   height: 100%;
   position: absolute;
   bottom: 0;
-  background-image: -webkit-linear-gradient(to bottom, #4aaeff, #fff);
+  background-image: linear-gradient(to bottom, #4aaeff, #fff);
   background-image: linear-gradient(to bottom, #4aaeff, #fff);
   overflow: hidden;
 }

@@ -34,7 +34,7 @@ export default {
   bottom: 0;
   left: 0;
   box-shadow: 0 0 5px #fff;
-  background-image: linear-gradient(180deg, #b7f03b, #15530b);
+  background-image: linear-gradient(#b7f03b, #15530b);
   border-top-left-radius: 120% 30%;
   border-top-right-radius: 70% 5%;
   position: relative;
@@ -45,7 +45,7 @@ export default {
   display: block;
   width: 100%;
   height: 80%;
-  background-image: linear-gradient(180deg, #b7f03b, #38862c);
+  background-image: linear-gradient(#b7f03b, #38862c);
   top: 20%;
   border-top-right-radius: 80% 30%;
   opacity: 0.2;
